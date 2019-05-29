@@ -7,6 +7,7 @@ const routes = [
       { path: '', component: () => import('pages/Index.vue') },
       { path: 'micuenta', component: () => import('pages/MiCuenta.vue') },
       { path: 'publicaciones', component: () => import('pages/Publicaciones.vue') },
+      { path: 'publicacion', component: () => import('pages/Publicacion.vue') },
       { path: 'publicar', component: () => import('pages/Publicar.vue') }
     ]
   }

@@ -34,15 +34,15 @@
       >
         <q-list-header>Menú</q-list-header>
         <q-item @click.native="$router.push('/micuenta')">
-          <q-item-side icon="school" />
+          <q-item-side icon="account_circle" />
           <q-item-main label="Mi cuenta" sublabel="quasar-framework.org" />
         </q-item>
         <q-item @click.native="$router.push('/publicaciones')">
-          <q-item-side icon="code" />
+          <q-item-side icon="list" />
           <q-item-main label="Publicaciones" sublabel="github.com/quasarframework" />
         </q-item>
         <q-item @click.native="$router.push('/publicar')">
-          <q-item-side icon="code" />
+          <q-item-side icon="chrome_reader_mode" />
           <q-item-main label="Publicar" sublabel="github.com/quasarframework" />
         </q-item>
       </q-list>

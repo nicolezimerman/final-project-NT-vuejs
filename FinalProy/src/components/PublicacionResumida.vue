@@ -1,29 +1,28 @@
 <template>
-  <div class="hello">
-    <h3>Datos {{ name }}</h3>
-    <div class="q-pa-md row items-start q-gutter-md">
+  <div class="q-pa-md row items-start q-gutter-md">
     <q-card class="my-card">
-      <img src="https://cdn.quasar.dev/img/mountains.jpg"  style="width:100%;">
+      <img src="https://d26lpennugtm8s.cloudfront.net/stores/281/365/products/81-ffacafd7dbe8207b1f15132913907866-1024-1024.jpg"  style="width:100%;">
 
       <q-card-section>
-        <div class="text-h6">Our Changing Planet</div>
-        <div class="text-subtitle2">by John Doe</div>
+        <div class="text-h6">{{ title }}</div>
+        <div class="text-subtitle2">{{ category }}</div>
       </q-card-section>
 
       <q-card-section>
-        {{ lorem }}
+        {{ description }}
       </q-card-section>
     </q-card>
-    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Datos',
+  name: 'PubResumida',
   props: {
-    name: String,
-    lorem: String
+    title: String,
+    category: String,
+    description: String,
+    image: String
   }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <q-page class="flex flex-center">
     <h2>Mi cuenta</h2>
-    <datos name="asd"></datos>
+    <datos name="asd" lorem="prueba"></datos>
   </q-page>
 </template>
 
