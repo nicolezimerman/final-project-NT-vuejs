@@ -9,7 +9,7 @@
 </style>
 
 <script>
-import datos from '../components/Datos'
+import datos from '../components/MisDatos'
 
 export default {
   name: 'MiCuenta',

@@ -17,8 +17,8 @@
         </q-btn>
 
         <q-toolbar-title>
-          FN App
-          <div slot="subtitle">v{{ $q.version }}</div>
+          ¡ G R A T I F E R I A !
+          <!-- <div slot="subtitle">v{{ $q.version }}</div> -->
         </q-toolbar-title>
       </q-toolbar>
     </q-layout-header>
@@ -35,15 +35,15 @@
         <q-list-header>Menú</q-list-header>
         <q-item @click.native="$router.push('/micuenta')">
           <q-item-side icon="account_circle" />
-          <q-item-main label="Mi cuenta" sublabel="quasar-framework.org" />
+          <q-item-main label="Mi cuenta"/>
         </q-item>
         <q-item @click.native="$router.push('/publicaciones')">
           <q-item-side icon="list" />
-          <q-item-main label="Publicaciones" sublabel="github.com/quasarframework" />
+          <q-item-main label="Publicaciones" />
         </q-item>
         <q-item @click.native="$router.push('/publicar')">
           <q-item-side icon="chrome_reader_mode" />
-          <q-item-main label="Publicar" sublabel="github.com/quasarframework" />
+          <q-item-main label="Publicar" />
         </q-item>
       </q-list>
     </q-layout-drawer>

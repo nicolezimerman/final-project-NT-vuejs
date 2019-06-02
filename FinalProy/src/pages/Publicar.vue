@@ -1,6 +1,7 @@
 <template>
   <q-page class="flex flex-center">
-    <h2>Publicar</h2>
+    <h2 class="text-primary">Crear publicación</h2>
+    <publicacionnueva></publicacionnueva>
   </q-page>
 </template>
 
@@ -8,7 +9,12 @@
 </style>
 
 <script>
+import publicacionnueva from '../components/publicacionNueva'
+
 export default {
-  name: 'Publicar'
+  name: 'Publicar',
+  components: {
+    publicacionnueva
+  }
 }
 </script>

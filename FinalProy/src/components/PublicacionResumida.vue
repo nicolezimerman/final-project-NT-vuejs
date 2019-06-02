@@ -1,16 +1,18 @@
 <template>
   <div class="q-pa-md row items-start q-gutter-md">
-    <q-card class="my-card">
+    <q-card class="my-card" style="padding: 5%;">
       <img src="https://d26lpennugtm8s.cloudfront.net/stores/281/365/products/81-ffacafd7dbe8207b1f15132913907866-1024-1024.jpg"  style="width:100%;">
 
       <q-card-section>
-        <div class="text-h6">{{ title }}</div>
-        <div class="text-subtitle2">{{ category }}</div>
+        <h4 class="text-h4 text-black text-left">{{ title }} </h4>
       </q-card-section>
 
       <q-card-section>
-        {{ description }}
+        <div class="text-subtitle2 text-primary">{{ category }}</div>
+        <p class="text-body2">{{ description }}</p>
+        <p class="text-body2">Zona de retiro: {{ zone }}</p>
       </q-card-section>
+      <q-btn color="primary" label="Ver más" />
     </q-card>
   </div>
 </template>
@@ -22,6 +24,7 @@ export default {
     title: String,
     category: String,
     description: String,
+    zone: String,
     image: String
   }
 }
@@ -29,18 +32,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+h4 {
+  margin-top: 3%;
+  margin-bottom: 3%;
 }
 </style>
