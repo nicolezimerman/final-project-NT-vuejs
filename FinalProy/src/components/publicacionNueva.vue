@@ -2,7 +2,7 @@
       <div style="width: 90%">
         <form action="/action_page.php"> <!-- completar -->
           <q-input filled v-model="ph" placeholder="Título de la publicacíon" hint="With placeholder" :dense="dense" />
-          <q-select type="list" filled v-model="select" :options="categoryOptions" label="Seleccione una categoría" />
+          <q-select type="list" filled v-model="select" :options="categoryOptions" placeholder="Seleccione una categoría" />
           <q-input filled v-model="ph" placeholder="Descripción" hint="With placeholder" :dense="dense" />
           <q-input filled v-model="ph" placeholder="Zona de retiro" hint="With placeholder" :dense="dense" />
           <q-input filled v-model="ph" placeholder="Palabras claves" hint="With placeholder" :dense="dense" />

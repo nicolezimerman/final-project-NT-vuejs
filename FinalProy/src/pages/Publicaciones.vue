@@ -1,9 +1,7 @@
 <template>
   <q-page class="flex flex-center">
     <h2 class="text-primary">Publicaciones</h2>
-    <pubResumida title="Sillon dos plazas" category="Sillones" description="Sillon de dos plazas de ecocuero. 5 años de uso." zone="Villa crespo"></pubResumida>
-    <pubResumida title="Set de cubiertos" category="Vajilla" description="Set de cubiertos." zone="Almagro"></pubResumida>
-    <pubResumida title="Lavarropas whirphol" category="Electrodomesticos" description="Lavarropas con secador marca whirphol." zone="Villa urquiza"></pubResumida>
+    <pubResumida v-for="p in publi" v-bind:key="p.title" v-bind:title="p.title" v-bind:category="p.category" v-bind:description="p.description" v-bind:zone="p.zone"></pubResumida>
   </q-page>
 </template>
 
@@ -17,6 +15,22 @@ export default {
   name: 'Publicaciones',
   components: {
     pubResumida
+  }, 
+  data: function() {
+    return {
+      publi: []
+    }
+  },
+  created() {
+    fetch('http://localhost:8081/api/publicaciones')
+      .then((respuesta) => {
+        console.log(respuesta)
+          return respuesta.json()
+        })
+        .then((resp) => {
+          this.publi = resp
+        })
   }
 }
+
 </script>
