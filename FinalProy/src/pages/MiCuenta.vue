@@ -1,35 +1,31 @@
 <template>
-  <q-page class="flex flex-center">
-    <div class="q-pa-md">
-      <h2 class="text-primary">Mi cuenta</h2>
-      <div class="q-gutter-y-md" style="max-width: 600px">
-
-        <q-tabs
-          v-model="tab"
-          class="text-teal"
-        >
-          <q-tab name="misdatos" icon="mail" label="Mis datos" />
-          <q-tab name="mispublicaciones" icon="alarm" label="Mis publicaciones" />
-          <q-tab name="misreservas" icon="movie" label="Mis reservas" />
-        </q-tabs>
-      </div>
-      
-      <datos name="asd" lorem="prueba"></datos>
-    </div>
-    <router-view></router-view>
-  </q-page>
+  <q-page>
+    <h2 class="text-primary">Mi cuenta</h2>
+<!--     <div class="q-pa-md">  
+      <q-btn-group strech>
+        <q-btn color="primary" icon="account_circle" label="Mis datos" @click.native="$router.push('/micuenta/misdatos')" ></q-btn>
+        <q-btn color="primary" icon="list" label="Mis publicaciones" ></q-btn>
+        <q-btn color="primary" icon="web" label="Mis reservas" ></q-btn>
+      </q-btn-group>  
+    </div> -->
+    <misdatos name="nicky" lorem="hola"></misdatos>
+  </q-page> 
 </template>
 
-<style>
+<style scoped>
+.qtabs{
+  display: flex;
+  justify-content: center;
+}
 </style>
 
 <script>
-import datos from '../components/MisDatos'
+import misdatos from '../components/MisDatos'
 
 export default {
   name: 'MiCuenta',
   components: {
-    datos
+    misdatos
   }
 }
 </script>
