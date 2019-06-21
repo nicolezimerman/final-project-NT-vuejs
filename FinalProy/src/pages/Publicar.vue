@@ -1,7 +1,9 @@
 <template>
-  <q-page class="flex flex-center">
-    <h2 class="text-primary">Crear publicación</h2>
-    <publicacionnueva></publicacionnueva>
+  <q-page>
+    <div class="container flex flex-center">
+      <h2 class="text-primary">Crear publicación</h2>
+      <publicacionnueva></publicacionnueva>
+    </div>
   </q-page>
 </template>
 

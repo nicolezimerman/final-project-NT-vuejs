@@ -4,8 +4,8 @@
       <h2 class="text-primary">Registarse</h2>
     </div>
     <div class="flex flex-center" style="width: 100%; margin:5%;">
-      <q-input v-model="text" type="text" float-label="Nombre" />
-      <q-input v-model="text" type="text" float-label="Apellido" />
+      <q-input v-model="nombre" type="text" float-label="Nombre" />
+      <q-input v-model="apellido" type="text" float-label="Apellido" />
       <q-input v-model="text" type="text" float-label="Email" />
       <q-input v-model="text" type="text" float-label="Edad" />
       <q-input v-model="text" type="text" float-label="Zona" />
@@ -28,6 +28,11 @@
 export default {
   name: 'Start',
   components: {
+  },
+  data: function () {
+    return {
+      nombre: ''
+    }
   }
 }
 </script>

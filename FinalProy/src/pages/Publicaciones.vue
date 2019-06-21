@@ -1,7 +1,7 @@
 <template>
   <q-page class="flex flex-center">
     <h2 class="text-primary">Publicaciones</h2>
-    <pubResumida v-for="p in publi" v-bind:key="p.title" v-bind:title="p.title" v-bind:category="p.category" v-bind:description="p.description" v-bind:zone="p.zone"></pubResumida>
+    <pubResumida v-for="p in publi" v-bind:key="p.id" v-bind:title="p.title" v-bind:category="p.category" v-bind:description="p.description" v-bind:zone="p.zone"></pubResumida>
   </q-page>
 </template>
 
@@ -28,6 +28,7 @@ export default {
           return respuesta.json()
         })
         .then((resp) => {
+          console.log(resp)
           this.publi = resp
         })
   }

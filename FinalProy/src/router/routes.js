@@ -6,11 +6,11 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/Index.vue') },
       { path: 'micuenta/',
-        component: () => import('pages/MiCuenta.vue'),
-        children: [
+        component: () => import('pages/MiCuenta.vue')
+        /*children: [
           { path: 'misdatos', component: () => ('components/MisDatos.vue') },
           { path: 'mispublicaciones', component: () => ('components/MisPublicaciones.vue') }
-        ] },
+        ]*/ },
       { path: 'publicaciones', component: () => import('pages/Publicaciones.vue') },
       { path: 'publicacion', component: () => import('pages/Publicacion.vue') },
       { path: 'publicar', component: () => import('pages/Publicar.vue') },

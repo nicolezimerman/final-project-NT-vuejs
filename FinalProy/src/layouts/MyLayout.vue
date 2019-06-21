@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-layout-header>
+    <q-layout-header v-if="loggedin">
       <q-toolbar
         color="primary"
         :glossy="$q.theme === 'mat'"
@@ -61,7 +61,8 @@ export default {
   name: 'MyLayout',
   data () {
     return {
-      leftDrawerOpen: this.$q.platform.is.desktop
+      leftDrawerOpen: this.$q.platform.is.desktop,
+      loggedin: true
     }
   },
   methods: {

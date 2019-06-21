@@ -60,7 +60,8 @@ module.exports = function (ctx) {
         'QSelect',
         'QTabs',
         'QTab',
-        'QRouteTab'
+        'QRouteTab',
+        'QSearch'
       ],
       directives: [
         'Ripple'

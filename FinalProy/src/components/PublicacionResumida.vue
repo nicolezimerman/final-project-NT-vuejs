@@ -10,12 +10,12 @@
       <q-card-section>
         <div class="text-subtitle2 text-primary">{{ category }}</div>
         <p class="text-body2">{{ description }}</p>
-        <p class="text-body2">Zona de retiro: {{ zone }}</p>
+        <p class="text-body2">Zona de retiro: {{   }}</p>
       </q-card-section>
       <q-btn
       color="primary"
       label="Ver más"
-      @click.native="$router.push('/publicacion')" />
+      @click.native="$router.push('/publicacion/')" />
     </q-card>
   </div>
 </template>
