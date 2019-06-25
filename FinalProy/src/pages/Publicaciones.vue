@@ -24,7 +24,7 @@ export default {
   created() {
     fetch('http://localhost:8081/api/publicaciones?state=available')
       .then((respuesta) => {
-        console.log(respuesta)
+        //console.log(respuesta)
           return respuesta.json()
         })
         .then((resp) => {

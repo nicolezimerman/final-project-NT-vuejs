@@ -2,7 +2,7 @@
   <div class="flex flex-center">
     <h3>Mis publicaciones</h3>
     <div class="row justify-center" style="width: 500px; max-width: 90vw;">  
-      <q-list sparse link separator highlight >
+      <q-list sparse link separator highlight style="min-width:100%;">
         <q-item multiline v-for="p in mispubli" v-bind:key="p.id">
           <q-item-side left v-bind:avatar="p.image" />
           <q-item-main v-bind:label="p.title"

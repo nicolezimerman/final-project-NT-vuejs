@@ -18,7 +18,9 @@
             ref="file"
             />
             <br>
-          <q-btn class="text-white bg-primary" label="Guardar" @click="crearPublicacion()"/>
+            <div class="flex flex-center">
+              <q-btn class="text-white bg-primary" label="Guardar" @click="crearPublicacion()"/>
+            </div>
         </form>
       </div>
     </div>

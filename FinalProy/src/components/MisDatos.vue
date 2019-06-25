@@ -10,7 +10,9 @@
         <q-input filled v-model="email" placeholder="Email" hint="With placeholder" />
         <q-input filled v-model="zone" placeholder="Zona de retiro" hint="With placeholder" />
         <q-input filled type="password" v-model="password" placeholder="Contraseña" hint="With placeholder" />
-        <q-btn class="row bg-primary text-white" style="margin: 5%;" icon="edit" @click="actualizarDatos()">Actualizar datos</q-btn>
+        <div class="flex flex-center">
+          <q-btn class="row bg-primary text-white" style="margin: 5%;" icon="edit" @click="actualizarDatos()">Actualizar datos</q-btn>
+        </div>
       </form>
       </q-list>
     </div>  
@@ -48,8 +50,7 @@ export default {
       console.log("editado: " +this.name)
       console.log("original: " +this.$store.state.user.name)
       const uri = 'http://localhost:8081/api/usuarios/'+this.id
-      axios.put(uri,
-      {
+      const usuario = {
         "id": this.id,
         "name": this.name,
         "lastname": this.lastname,
@@ -57,14 +58,16 @@ export default {
         "email": this.email,
         "zone": this.zone,
         "password": this.password
-      }).then(response => {
+      }
+      axios.put(uri, usuario
+      ).then(response => {
         const user = response.data
         console.log("Request ok - Usuario actualizado")
-        this.$store.commit('updateUser',user)
+        this.$store.commit('updateUser', user)
         console.log(this.$store.state.user)
       })
       .catch(error => {
-        console.log(error)
+        console.log("Error: " + error)
       })
     }
   }

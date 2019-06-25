@@ -7,7 +7,7 @@
        <q-input filled v-model="name" placeholder="Nombre" hint="With placeholder" />
       <q-input filled v-model="lastname" placeholder="Apellido" hint="With placeholder" />
       <q-input filled v-model="age" placeholder="Edad" hint="With placeholder" />
-      <q-input filled v-model="email" placeholder="Email" hint="With placeholder" />
+      <q-input filled v-model="email" type="email" placeholder="Email" hint="With placeholder" />
       <q-input filled v-model="zone" placeholder="Zona de retiro" hint="With placeholder"/>
       <q-input filled v-model="password" type="password" placeholder="Contraseña"/> 
       <q-btn
@@ -60,7 +60,7 @@ export default {
         this.$router.push("/")
       })
       .catch(error => {
-        console.log(error)
+        console.log("Error: " +error)
       })
     }
 

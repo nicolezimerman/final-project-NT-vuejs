@@ -2,7 +2,7 @@
   <div class="flex flex-center">
     <h3>Mis reservas</h3>
     <div class="row justify-center" style="width: 500px; max-width: 90vw;">
-      <q-list sparse link separator highlight >
+      <q-list sparse link separator highlight style="min-width:100%;">
         <q-item multiline v-for="r in misreservas" v-bind:key="r.id">
           <q-item-side left v-bind:avatar="r.image" />
           <q-item-main v-bind:label="r.title"
