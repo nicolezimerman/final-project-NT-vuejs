@@ -11,11 +11,12 @@ export default function () {
       session: true,
       user: { //eliminar esta info para entregar
         id:1,
-        nombre: "nicole",
-        apellido: "zimerman",
-        edad: 24,
+        name: "nicole",
+        lastname: "zimerman",
+        age: 24,
         email: "nzimer@gmail.com",
-        zona: "almagro"
+        zone: "almagro",
+        password: "123456"
       },
       message: '',
       visible: false

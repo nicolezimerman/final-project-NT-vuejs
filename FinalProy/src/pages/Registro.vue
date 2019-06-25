@@ -9,7 +9,7 @@
       <q-input filled v-model="age" placeholder="Edad" hint="With placeholder" />
       <q-input filled v-model="email" placeholder="Email" hint="With placeholder" />
       <q-input filled v-model="zone" placeholder="Zona de retiro" hint="With placeholder"/>
-      <!-- <q-input filled v-model="password" type="password" placeholder="Contraseña"/> --> 
+      <q-input filled v-model="password" type="password" placeholder="Contraseña"/> 
       <q-btn
         class="text-white bg-primary"
         style="width: 90%; margin:5%;"
@@ -36,18 +36,20 @@ export default {
       lastname: '',
       age: '', 
       email: '',
-      zone: ''
+      zone: '',
+      password: ''
     }
   },
   methods:{
     registrarUsuario(){
       const uri = "http://localhost:8081/api/usuarios"
       axios.post(uri, {
-        nombre: this.name,
-        apellido: this.lastname,
-        edad: this.age,
-        email: this.email,
-        zona: this.zone
+        "name": this.name,
+        "lastname": this.lastname,
+        "age": this.age,
+        "email": this.email,
+        "zone": this.zone,
+        "password": this.password
       })
       .then(response => {
         const user = response.data
