@@ -9,7 +9,12 @@
 
 <script>
 export default {
-  name: 'Buscador'
+  name: 'Buscador',
+  data: function(){
+    return{
+      searchModel:''
+    }
+  }
 }
 </script>
 

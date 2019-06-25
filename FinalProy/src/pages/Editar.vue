@@ -1,12 +1,12 @@
 <template>
   <q-page>
     <div class="container flex flex-center">
-      <h2 class="text-primary">Crear publicación</h2>
+      <h2 class="text-primary">Editar publicación</h2>
       <div>
         <form enctype="multipart/form-data"> <!-- completar -->
           <q-input filled v-model="title" placeholder="Título de la publicacíon" hint="With placeholder" />
           <q-select type="list" filled v-model="category" :options="categoryOptions" placeholder="Seleccione una categoría" />
-          <q-input filled v-model="description" placeholder="Descripción" hint="With placeholder" />
+          <q-input type="textarea" filled v-model="description" placeholder="Descripción" hint="With placeholder" />
           <q-input filled v-model="zone" placeholder="Zona de retiro" hint="With placeholder" />
           <q-input filled v-model="keyword" placeholder="Palabras claves" hint="With placeholder" />
           <q-input
@@ -18,9 +18,10 @@
             ref="file"
             />
             <br>
-          <q-btn class="text-white bg-primary" label="Guardar" @click="crearPublicacion()"/>
+          <q-btn class="text-white bg-primary" label="Guardar" @click="editarPublicacion()"/>
         </form>
-      </div>
+    </div>
+
     </div>
   </q-page>
 </template>
@@ -33,9 +34,10 @@ import { async } from 'q';
 const axios = require('axios')
 
 export default {
-  name: 'Publicar',
+  name: 'Editar',
   data () {
     return {
+      id: '',
       title: '',
       description: '',
       category: '',
@@ -64,18 +66,38 @@ export default {
       ],
     }
   },
+  created(){
+    const uri= "http://localhost:8081/api/publicaciones/"+this.$route.params.id
+    console.log(uri)
+    fetch(uri)
+    .then((respuesta) => {
+      console.log(respuesta)
+      return respuesta.json()
+      })
+    .then((resp) => {
+      console.log(resp)
+      this.id = resp.id
+      this.title = resp.title,
+      this.description = resp.description,
+      this.category = resp.category,
+      this.zone = resp.zone,
+      this.keyword = resp.keyword,
+      this.owner = resp.owner,
+      this.reservedby = resp.reservedby
+    })    
+  },
   methods:{
-    crearPublicacion(){
+    editarPublicacion(){
       var formData = new FormData();
       var fileField = document.querySelector("input[type='file']");
       var fileArchive = fileField.files[0]
       console.log(fileArchive);
       formData.append('photo', fileArchive);
 
-      const obtenerImg = async () => {
+      const actualizarImg = async () => {
         console.log('Creando imagen')
         const response = await fetch('http://localhost:8081/api/imagenes', {
-          method: 'POST',
+          method: 'PUT',
           body: formData
         })
         const json = await response.json()
@@ -83,6 +105,7 @@ export default {
         const uriimage = json.self
         console.log("Imagen creada: " + uriimage)
         const publi = {
+          "id": this.id,
           "title": this.title,
           "description": this.description,
           "category": this.category,
@@ -96,7 +119,7 @@ export default {
         console.log(publi)
 
         const resp = await fetch('http://localhost:8081/api/publicaciones', {
-          method: 'POST',
+          method: 'PUT',
           headers: {'Content-Type':'application/json'},
           body: JSON.stringify({
           "title": this.title,
@@ -121,7 +144,7 @@ export default {
         //notificar que se creo la publicacion
         //redirigir a mis publicaciones
       }
-      obtenerImg()
+      actualizarImg()
     }
   }
 }

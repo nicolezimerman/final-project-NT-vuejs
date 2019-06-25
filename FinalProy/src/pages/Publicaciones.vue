@@ -1,7 +1,7 @@
 <template>
   <q-page class="flex flex-center">
     <h2 class="text-primary">Publicaciones</h2>
-    <pubResumida v-for="p in publi" v-bind:key="p.id" v-bind:title="p.title" v-bind:category="p.category" v-bind:description="p.description" v-bind:zone="p.zone"></pubResumida>
+    <pubResumida v-for="p in publi" v-bind:key="p.id" v-bind:id="p.id" v-bind:title="p.title" v-bind:category="p.category" v-bind:description="p.description" v-bind:zone="p.zone" v-bind:image="p.image"></pubResumida>
   </q-page>
 </template>
 
@@ -22,7 +22,7 @@ export default {
     }
   },
   created() {
-    fetch('http://localhost:8081/api/publicaciones')
+    fetch('http://localhost:8081/api/publicaciones?state=available')
       .then((respuesta) => {
         console.log(respuesta)
           return respuesta.json()

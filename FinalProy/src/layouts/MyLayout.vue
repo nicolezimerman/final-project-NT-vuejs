@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-layout-header v-if="loggedin">
+    <q-layout-header v-if="this.$store.state.session">
       <q-toolbar
         color="primary"
         :glossy="$q.theme === 'mat'"
@@ -49,6 +49,7 @@
     </q-layout-drawer>
 
     <q-page-container>
+      <errors v-bind:message="message" v-bind:visible="visible"></errors>
       <router-view />
     </q-page-container>
   </q-layout>
@@ -56,17 +57,26 @@
 
 <script>
 import { openURL } from 'quasar'
+import errors from '../components/Errors'
 
 export default {
   name: 'MyLayout',
-  data () {
+  components: {
+    errors
+  },
+  data: function () {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop,
-      loggedin: true
+      visible: false,
+      message: ''
     }
   },
   methods: {
     openURL
+  },
+  created(){
+    this.visible = this.$store.state.visible,
+    this.message= this.$store.state.message 
   }
 }
 </script>

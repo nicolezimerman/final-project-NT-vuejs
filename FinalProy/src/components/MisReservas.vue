@@ -1,37 +1,37 @@
 <template>
   <div class="flex flex-center">
-    <h3>Mis publicaciones</h3>
-    <div class="row justify-center" style="width: 500px; max-width: 90vw;">  
+    <h3>Mis reservas</h3>
+    <div class="row justify-center" style="width: 500px; max-width: 90vw;">
       <q-list sparse link separator highlight >
-        <q-item multiline v-for="p in mispubli" v-bind:key="p.id">
-          <q-item-side left v-bind:avatar="p.image" />
-          <q-item-main v-bind:label="p.title"
+        <q-item multiline v-for="r in misreservas" v-bind:key="r.id">
+          <q-item-side left v-bind:avatar="r.image" />
+          <q-item-main v-bind:label="r.title"
             label-lines="1"
-            v-bind:sublabel="p.description"
+            v-bind:sublabel="r.description"
             sublabel-lines="2"/>
           <q-item-side right >
             <q-btn
               color="primary"
-              icon="edit"
-              @click.native="$router.push({path: `/publicacion/editar/${p.id}`})" />
+              icon="pageview"
+              @click.native="$router.push({path: `/publicacion/${r.id}`})" />
           </q-item-side >
         </q-item>
       </q-list>
-      <div v-if="mispubli.length==0"> No hay pubicaciones para mostrar</div>
+    <div v-if="misreservas.length==0">No hay reservas para mostrar</div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'MisPublicaciones',
+  name: 'MisReservas',
   data: function() {
     return{
-      mispubli: []
+      misreservas: []
     }
   },
   created (){
-    const uri = "http://localhost:8081/api/publicaciones?owner="+this.$store.state.user.id
+    const uri = "http://localhost:8081/api/publicaciones?reservedby="+this.$store.state.user.id
     fetch(uri)
       .then((respuesta) => {
         console.log(respuesta)
@@ -43,15 +43,12 @@ export default {
       })
         .then((resp) => {
           console.log(resp)
-          this.mispubli = resp
+          this.misreservas = resp
         })
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h4{
-  margin:5%;
-}
+<style>
 </style>

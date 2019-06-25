@@ -1,21 +1,20 @@
 <template>
-  <div class="q-pa-md row items-start q-gutter-md">
-    <q-card class="my-card" style="padding: 5%;">
-      <img src="https://d26lpennugtm8s.cloudfront.net/stores/281/365/products/81-ffacafd7dbe8207b1f15132913907866-1024-1024.jpg"  style="width:100%;">
-
-      <q-card-section>
-        <h4 class="text-h4 text-black text-left">{{ title }} </h4>
-      </q-card-section>
-
-      <q-card-section>
-        <div class="text-subtitle2 text-primary">{{ category }}</div>
-        <p class="text-body2">{{ description }}</p>
-        <p class="text-body2">Zona de retiro: {{   }}</p>
-      </q-card-section>
-      <q-btn
+  <div class="q-pa-md row items-start q-gutter-md" >
+    <q-card class="my-card flex" style="padding: 5%; min-width:100%;">
+      <div style="width:40%; margin-right:5%;">
+        <img v-bind:src="image" style="width:100%;" />
+      </div>
+      <div style="width:55%;">
+        <h4 class="q-body-2 text-left">{{ title }} </h4>
+        <p class="q-body-2 text-primary">{{ category }}</p>
+        <p class="q-caption">{{ description }}</p>
+      </div>
+      <div style="width:100%;" class="flex flex-center">
+        <q-btn
       color="primary"
       label="Ver más"
-      @click.native="$router.push('/publicacion/')" />
+      @click.native="$router.push({path: `/publicacion/${id}`})" />
+      </div>    
     </q-card>
   </div>
 </template>
@@ -24,6 +23,7 @@
 export default {
   name: 'PubResumida',
   props: {
+    id: Number,
     title: String,
     category: String,
     description: String,
